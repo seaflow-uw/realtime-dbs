@@ -36,6 +36,6 @@ jobs:
         with:
           name: db-files-list
       - name: Run validation script
-        run: ${GITHUB_WORKSPACE}/.github/workflows/validate-dbs-runner.sh db-files.txt
+        run: ${GITHUB_WORKSPACE}/.github/workflows/validate-dbs-wrapper.sh db-files.txt
         shell: bash
       - run: echo "🍏 This job's status is ${{ job.status }}."
