@@ -87,7 +87,7 @@ validate_filter_and_classify_one_pair <- function(dbpath, filter_plan_row = 1, g
   popcycle::reset_gating_plan_table(newdbpath)
   popcycle::save_gating_plan(newdbpath, gp[gating_plan_row, ])
 
-  popcycle:::copy_tables("popcycle/tests/testdata/testcruise_bare.db", newdbpath, c("sfl"))
+  popcycle:::copy_tables("popcycle/tests/testdata/testcruise_bare_db", newdbpath, c("sfl"))
 
   evt_files <- popcycle::get_evt_files("popcycle/tests/testdata/evt")
   opp_dir <- tempfile(glue("{basename(dbpath)}_opp_{filter_plan_row}_{gating_plan_row}"))
