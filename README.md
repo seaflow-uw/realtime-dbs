@@ -36,10 +36,10 @@ test that file with `.github/workflows/validate-dbs.R`,
 then commit and push those changes.
 
 ```sh
-Rscript .github/workflows/validate-dbs.R KM2206_740.db KM2206_130.db
+Rscript .github/workflows/validate-dbs.R dbs/KM2206_740.db dbs/KM2206_130.db
 # ...
 # No errors
-git add KM2206_740.db KM2206_130.db
+git add dbs/KM2206_740.db dbs/KM2206_130.db
 git commit -m 'Modify KM2206 740 and 130 filt params to account for change in FSC PMT'
 git push -u KM2206-2022-06-13 origin
 ```
