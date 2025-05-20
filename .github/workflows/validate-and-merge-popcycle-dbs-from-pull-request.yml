@@ -10,7 +10,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
           PR_URL: ${{github.event.pull_request.html_url}}
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Save list database files in this PR
         run: |
           gh pr view "$PR_NUMBER" --json files --jq '.files[] | .path | select(endswith(".db"))' > db-files.txt
@@ -20,7 +20,7 @@ jobs:
       - name: Print db files in this PR
         run: cat db-files.txt
       - name: Upload list of db files in this PR
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: db-files-list
           path: db-files.txt
@@ -30,9 +30,9 @@ jobs:
     needs: list-db-files
     container: ctberthiaume/popcycle:4.19.5
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Download list of db files in this PR
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: db-files-list
       - name: Run validation script
